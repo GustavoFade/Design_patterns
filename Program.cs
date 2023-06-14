@@ -1,5 +1,6 @@
 ﻿using System;
 using DesingPatterns.Criacionais.AbstractFactory;
+using DesingPatterns.Criacionais.MethodFactory;
 
 namespace DesingPatterns
 {
@@ -8,6 +9,7 @@ namespace DesingPatterns
         static void Main(string[] args)
         {
             AbstractFatory();
+            MethodFatory();
             
         }
         private static void AbstractFatory()
@@ -19,6 +21,16 @@ namespace DesingPatterns
             var templateDark = new TemplateSiteClient(new TemplateSiteDarkConcreteFactory());
             System.Console.WriteLine(templateDark.corHeader);
             System.Console.WriteLine(templateDark.corBody);
+        }
+        private static void MethodFatory()
+        {
+            var creatorMoto = new MotoCreator();
+            var moto = creatorMoto.MethodFactory();
+            moto.Entregrar();
+
+            var creatorCarro = new CarroCreator();
+            var carro = creatorCarro.MethodFactory();
+            carro.Entregrar();
         }
     }
 }
