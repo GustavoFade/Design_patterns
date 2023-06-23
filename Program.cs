@@ -2,6 +2,7 @@
 using DesingPatterns.Criacionais.AbstractFactory;
 using DesingPatterns.Criacionais.MethodFactory;
 using DesingPatterns.Criacionais.Singleton;
+using DesingPatterns.Estruturais.Adapter;
 using System.Threading;
 
 
@@ -15,6 +16,7 @@ namespace DesingPatterns
             MethodFatory();
             EstadoSingleton.GetIntance();
             TestEstadoSingletonTheadSafety();
+            Adapter();
         }
         private static void TestEstadoSingletonTheadSafety()
         {
@@ -69,6 +71,13 @@ namespace DesingPatterns
             var creatorCarro = new CarroCreator();
             var carro = creatorCarro.MethodFactory();
             carro.Entregrar();
+        }
+        private static void Adapter()
+        {
+            DesingPatterns.Estruturais.Adapter.Adapter.Log logAdaptee = new DesingPatterns.Estruturais.Adapter.Adapter.Log();
+            DesingPatterns.Estruturais.Adapter.Adapter.ILogger logTarget = new DesingPatterns.Estruturais.Adapter.Adapter.Adapter(logAdaptee);
+
+            logTarget.EnviarLog();
         }
         void TestSingletonTheadSafety(string value)
         {
