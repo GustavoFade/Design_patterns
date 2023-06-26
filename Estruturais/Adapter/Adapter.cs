@@ -15,11 +15,11 @@ namespace DesingPatterns.Estruturais.Adapter
             }
         }
 
-        public class Adapter : ILogger
+        public class LogAdapter : ILogger
         {
             private readonly Log _log;
 
-            public Adapter(Log adaptee)
+            public LogAdapter(Log adaptee)
             {
                 this._log = adaptee;
             }

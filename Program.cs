@@ -75,11 +75,11 @@ namespace DesingPatterns
         private static void Adapter()
         {
             DesingPatterns.Estruturais.Adapter.Adapter.Log logAdaptee = new DesingPatterns.Estruturais.Adapter.Adapter.Log();
-            DesingPatterns.Estruturais.Adapter.Adapter.ILogger logTarget = new DesingPatterns.Estruturais.Adapter.Adapter.Adapter(logAdaptee);
+            DesingPatterns.Estruturais.Adapter.Adapter.ILogger logTarget = new DesingPatterns.Estruturais.Adapter.Adapter.LogAdapter(logAdaptee);
 
             logTarget.EnviarLog();
         }
-        void TestSingletonTheadSafety(string value)
+        static void TestSingletonTheadSafety(string value)
         {
             Console.WriteLine(value);
             EstadoSingletonTheadSafety.GetIntance();
